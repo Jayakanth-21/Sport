@@ -7,8 +7,8 @@ class Choices(models.Model):
     Cost_for_equipment = models.IntegerField(default=100)
     Played_this_sport = models.BooleanField(default=True)
 
-    # def __str__(self):
-    #     return self.Name_of_sport
+    def __str__(self):
+        return f"{self.Name_of_sport} -- {self.Dress_code}"
 
 class PlayerEligibility(models.Model):
     Name_of_player_id = models.CharField(max_length=25)
