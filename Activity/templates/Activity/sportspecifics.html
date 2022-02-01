@@ -1,17 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "Activity/base.html" %}
+
+{% block content %}
+
+
+<div class="container">
+<table class="table">
+<tbody>
+
+<th scope="row"></th>
 {% for sport in object_list %}
-
+     <tr>
+         <td> {{ sport }}  </td>
      {% for player in sport.playereligibility_set.all %}
-            <li><a href="{% url 'playerdetail' player.pk %}"> {{ player.Name_of_player_id }} </a></li>
-    {% endfor %}
-     <li> {{ sport }} </li>
+           <td> <a href="{% url 'playerdetail' player.pk %}"> {{ player.Name_of_player_id }} </a> </td>
+           <td class="table-danger"> <a href="{% url 'playerdelete' player.pk %}"> delete </a> </td>
+        {% endfor %}
 
+</tr>
 {% endfor %}
-</body>
-</html>
+
+</tbody>
+</table>
+</div>
+
+{% endblock %}
+
+
+

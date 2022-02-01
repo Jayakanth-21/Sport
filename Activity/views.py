@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from .models import Choices, PlayerEligibility
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import DeleteView
 from django.utils import timezone
 
 
@@ -30,7 +31,7 @@ class SportSpecifics(ListView):
 
 class PlayerSpecifics(ListView):
     model = PlayerEligibility
-    template_name = 'Activity/sportspecifics.html'
+    # template_name = 'Activity/sportspecifics.html'
 
 
 class CreateUserForm(CreateView):
@@ -58,5 +59,9 @@ class PlayerDetailView(DetailView):
       context['now'] = timezone.now()
       return context
 
+class PlayerDeletevView(DeleteView):
+
+    model = PlayerEligibility
+    success_url = reverse_lazy('sportspecifics')
 
 # Create your views here.

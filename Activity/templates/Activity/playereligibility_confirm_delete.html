@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player Delete view</title>
+</head>
+<body>
+<form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete " {{ object.Name_of_player_id}} "?</p>
+    {{ form }}
+    <input type="submit" value="Confirm">
+   <button type="button" class="btn btn-info"> <a href="{% url 'sportspecifics' %}"> NO </a> </button>
+
+
+</form>
+</body>
+</html>
